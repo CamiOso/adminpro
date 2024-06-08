@@ -6,6 +6,7 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { SharedModule } from '../../shared/shared/shared.module';
 import { AppRoutingModule } from '../../app-routing.module';
+import {FormsModule} from '@angular/forms'
 
 
 
@@ -19,7 +20,8 @@ import { AppRoutingModule } from '../../app-routing.module';
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
 
 
   ],
