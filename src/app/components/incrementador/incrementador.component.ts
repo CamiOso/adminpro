@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-incrementador',
@@ -6,25 +6,27 @@ import { Component } from '@angular/core';
   styleUrl: './incrementador.component.css'
 })
 export class IncrementadorComponent {
-  progreso:number=5;
+ @Input('valor') progreso:number=5;
 
-  get getPorcentaje(){
-    return `${this.progreso}%`;
+ @Output() valorSalida:EventEmitter<number>=new EventEmitter();
 
-  }
+
 
   cambiarValor(valor:number){
 
     if(this.progreso>=100 &&valor>=0){
+      this.valorSalida.emit(100);
       this.progreso= 100;
       return;
 
     }
     if(this.progreso<=0 &&valor<=0){
+      this.valorSalida.emit(0);
       this.progreso=0;
       return;
     }
     this.progreso+=valor;
+    this.valorSalida.emit(this.progreso);
 
 }
 
