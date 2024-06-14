@@ -10,6 +10,9 @@ import {FormsModule} from '@angular/forms'
 import { ComponentsModule } from '../../components/components.module';
 
 
+import {Chart} from 'chart.js/auto';
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { ComponentsModule } from '../../components/components.module';
     SharedModule,
     AppRoutingModule,
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
+ 
+
 
 
 
