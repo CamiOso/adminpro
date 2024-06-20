@@ -1,18 +1,36 @@
 <div class="row">
   <div class="col-5">
-    <div class="card">
-      <div class="card-body">
-        <h3>Sales</h3>
-        <canvas id="chart1"></canvas>
-      </div>
-    </div>
+    <app-dona [title]="'Ejemplo de Gráfico'"
+    [chartLabels]="['January', 'February', 'March', 'April', 'May', 'June', 'July']"
+    [chartData]="[65, 59, 80, 81, 56, 55, 40]"
+    [chartBackgroundColors]="[
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(255, 159, 64, 0.2)',
+      'rgba(255, 205, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(201, 203, 207, 0.2)'
+    ]">
+</app-dona>
   </div>
 
   <div class="col-5">
-    <div class="card">
-      <div class="card-body">
-        <canvas id="chart2"></canvas>
-      </div>
-    </div>
+    <app-dona
+    title="Compras"></app-dona>
+   </div>
+
+
+</div>
+
+<div class="row">
+  <div class="col-5">
+    <app-dona title="Cambios"></app-dona>
   </div>
+
+  <div class="col-5">
+    <app-dona title="Mas Compras"></app-dona>
+   </div>
+
+
 </div>

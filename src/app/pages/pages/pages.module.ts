@@ -10,7 +10,8 @@ import {FormsModule} from '@angular/forms'
 import { ComponentsModule } from '../../components/components.module';
 
 
-import {Chart} from 'chart.js/auto';
+
+import { AccountSettingsComponent } from '../account-settings/account-settings.component';
 
 
 
@@ -20,6 +21,7 @@ import {Chart} from 'chart.js/auto';
     Grafica1Component,
     PagesComponent,
     DashboardComponent,
+    AccountSettingsComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,7 @@ import {Chart} from 'chart.js/auto';
     AppRoutingModule,
     FormsModule,
     ComponentsModule,
- 
+
 
 
 
@@ -38,6 +40,7 @@ import {Chart} from 'chart.js/auto';
     Grafica1Component,
     PagesComponent,
     DashboardComponent,
+    AccountSettingsComponent
   ]
 })
 export class PagesModule { }
