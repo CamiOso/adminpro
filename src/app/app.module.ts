@@ -8,6 +8,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 import { PagesModule } from './pages/pages/pages.module';
 import { AuthModule } from './auth/auth/auth.module';
+import { PromesasComponent } from './pages/promesas/promesas.component';
+import { RxjsComponent } from './pages/rxjs/rxjs.component';
 
 
 
@@ -18,6 +20,8 @@ import { AuthModule } from './auth/auth/auth.module';
     AppComponent,
 
     NopagefoundComponent,
+      PromesasComponent,
+      RxjsComponent,
 
 
 
