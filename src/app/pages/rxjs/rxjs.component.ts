@@ -1,70 +1,58 @@
-import { Component } from '@angular/core';
-import { Observable, retry,interval,take,map} from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
+import { Observable, retry, interval, take, map, filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs',
   templateUrl: './rxjs.component.html',
-  styleUrl: './rxjs.component.css'
+  styleUrl: './rxjs.component.css',
 })
-export class RxjsComponent {
+export class RxjsComponent implements OnDestroy{
 
-  constructor(){
+  public intervalSubs:Subscription;
+  constructor() {
+    //   this.retornaObservable().pipe(
+    //     retry(1)
 
+    //   ).subscribe({
 
-  //   this.retornaObservable().pipe(
-  //     retry(1)
+    //       next: value=>console.log(value),
+    //       error: error=>console.error(error),
+    //       complete: ()=>console.log('Terminado')
 
-  //   ).subscribe({
+    //  } );
 
-
-  //       next: value=>console.log(value),
-  //       error: error=>console.error(error),
-  //       complete: ()=>console.log('Terminado')
-
-
-
-  //  } );
-
-  this.retornaIntervalo().subscribe(
-    console.log);
-
+   this.intervalSubs= this.retornaIntervalo().
+    subscribe(console.log);
 
   }
 
 
-retornaIntervalo():Observable<number>{
- return  interval(1000).pipe(take(4),map(valor=>
-    valor+1
-  ));
+  ngOnDestroy(): void {
+    this.intervalSubs.unsubscribe();
+  }
 
-}
+  retornaIntervalo(): Observable<number> {
+    return interval(500).pipe(
+      map((valor) => valor + 1),
+      filter((valor) =>(valor%2===0)?true:false),
+      //take(10)
+    );
+  }
 
-
-
-  retornaObservable():Observable<number>{
-    let i=-1;
-   return new Observable<number>(observer=>{
-
-
-     const intervalo= setInterval(()=>{
+  retornaObservable(): Observable<number> {
+    let i = -1;
+    return new Observable<number>((observer) => {
+      const intervalo = setInterval(() => {
         i++;
         observer.next(i);
-        if(i===4){
+        if (i === 4) {
           clearInterval(intervalo);
           observer.complete();
-
-
-
         }
-       if(i===2){
-
+        if (i === 2) {
           observer.error('i llego al valor de 2');
-
-       }
-
-      },1000)
+        }
+      }, 1000);
     });
-
   }
-
 }
