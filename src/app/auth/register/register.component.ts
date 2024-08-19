@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'] 
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   public formSubmited = false;
@@ -14,23 +15,33 @@ export class RegisterComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     password2: ['', [Validators.required, Validators.minLength(6)]],
-    terminos: [true, Validators.required]
+    terminos: [true, Validators.requiredTrue]
   }, {
     validators: this.passwordsIguales('password', 'password2')
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+    private usuarioService: UsuarioService
+  ) {}
 
   crearUsuario() {
     this.formSubmited = true;
     console.log(this.registerForm.value);
 
-    if (this.registerForm.valid) {
-      console.log('formulario valido');
-    } else {
-      console.log('formulario no valido');
+    if (this.registerForm.invalid) {
+      return;
     }
+
+    this.usuarioService.crearUsuario(this.registerForm.value).subscribe({
+      next: (resp) => {
+        console.log('Usuario creado');
+        console.log(resp);
+      },
+      error: (err) => console.warn(err.error.msg)
+
+    });
   }
+
 
   campoNoValido(campo: string): boolean {
     return !!(this.registerForm.get(campo)?.invalid && this.formSubmited);
