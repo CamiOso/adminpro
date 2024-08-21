@@ -17,4 +17,10 @@ export class Usuario{
 
   }
 
+  imprimirUsuario(){
+    console.log(`Nombre: ${this.nombre}`);
+    console.log(`Email: ${this.email}`);
+
+  }
+
 }

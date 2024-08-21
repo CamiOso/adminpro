@@ -5,10 +5,12 @@ import { environment } from '../../environment/environment';
 import { LoginForm } from '../interfaces/login-form.interface';
 import { tap, map, Observable, catchError, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/usuario.model';
 
 const base_url = environment.base_url;
 declare const google: any;
 declare const gapi: any;
+
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +18,7 @@ declare const gapi: any;
 export class UsuarioService {
 
   public auth2: any;
+  public usuario!: Usuario;
 
   constructor(
     private http: HttpClient,
@@ -58,6 +61,18 @@ export class UsuarioService {
       },
     }).pipe(
       tap((resp: any) => {
+        const { email, google, nombre, role, uid, img } = resp.usuario;
+        this.usuario =new Usuario(
+          nombre,
+          email,
+          '',
+          img,
+          google,
+          role,
+          uid
+
+        );
+        this.usuario.imprimirUsuario();
         localStorage.setItem('token', resp.token || '');
       }),
       map(resp => true),
