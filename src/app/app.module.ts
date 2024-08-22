@@ -10,6 +10,7 @@ import { PagesModule } from './pages/pages/pages.module';
 import { AuthModule } from './auth/auth/auth.module';
 import { PromesasComponent } from './pages/promesas/promesas.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 
@@ -22,6 +23,7 @@ import { RxjsComponent } from './pages/rxjs/rxjs.component';
     NopagefoundComponent,
       PromesasComponent,
       RxjsComponent,
+      PerfilComponent,
 
 
 
