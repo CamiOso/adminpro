@@ -1,26 +1,33 @@
+import { environment } from "../../environment/environment";
 
-export class Usuario{
+
+
+
+const base_url:string = environment.base_url;
+export class Usuario {
+
 
   constructor(
+    public nombre: string,
+    public email: string,
+    public password?: string,
+    public img?: string,
+    public google?: boolean,
+    public role?: string,
+    public uid?: string
+  ) {}
 
+  get imagenUrl() {
+    console.log(this.img);
 
-    public nombre:string,
-    public email:string ,
-    public password?:string,
-    public img?:string,
-    public google?:boolean,
-    public role?:string,
-    public uid?:string,
+    if ( this.img?.includes('https') ) {
+        return this.img;
+    }
 
-  ){
-
-
-  }
-
-  imprimirUsuario(){
-    console.log(`Nombre: ${this.nombre}`);
-    console.log(`Email: ${this.email}`);
-
-  }
-
+    if ( this.img ) {
+        return `${ base_url }/upload/usuarios/${ this.img }`;
+    } else {
+        return `${ base_url }/upload/usuarios/no-image`;
+    }
+}
 }

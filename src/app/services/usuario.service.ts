@@ -72,7 +72,7 @@ export class UsuarioService {
           uid
 
         );
-        this.usuario.imprimirUsuario();
+        
         localStorage.setItem('token', resp.token || '');
       }),
       map(resp => true),
