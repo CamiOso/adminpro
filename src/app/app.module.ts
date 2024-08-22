@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth/auth.module';
 import { PromesasComponent } from './pages/promesas/promesas.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -33,7 +34,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    AuthModule
+    AuthModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
