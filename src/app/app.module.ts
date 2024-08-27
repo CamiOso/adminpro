@@ -12,6 +12,7 @@ import { PromesasComponent } from './pages/promesas/promesas.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.component';
 
 
 
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       PromesasComponent,
       RxjsComponent,
       PerfilComponent,
+      UsuariosComponent,
 
 
 
