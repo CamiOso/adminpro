@@ -11,6 +11,8 @@ export class UsuariosComponent implements OnInit {
 
   public totalUsuarios: number = 0;
   public usuarios:Usuario[] = [];
+  public desde:number=0;
+  public cargando:boolean=true;
 
   constructor(private usuarioService: UsuarioService) {
 
@@ -18,16 +20,40 @@ export class UsuariosComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.usuarioService.cargarUsuarios(0).
-      subscribe(({total,usuarios}) => {
-        this.totalUsuarios = total;
+  this.cargarUsuario();
+
+  }
+
+
+  cargarUsuario(){
+    this.cargando=true;
+    this.usuarioService.cargarUsuarios(this.desde).
+    subscribe(({total,usuarios}) => {
+      this.totalUsuarios = total;
+
         this.usuarios = usuarios;
+        this.cargando=false;
 
 
 
 
-      });
 
+
+    });
+
+  }
+
+  cambiarPagina(valor:number){
+    this.desde+=valor;
+
+    if(this.desde<0){
+      this.desde=0;
+
+    }else if(this.desde>=this.totalUsuarios){
+      this.desde-=valor;
+    }
+
+    this.cargarUsuario();
   }
 
 }
