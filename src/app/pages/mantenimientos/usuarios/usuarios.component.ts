@@ -3,6 +3,7 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../../models/usuario.model';
 import { BusquedasService } from '../../../services/busquedas.service';
 import Swal from 'sweetalert2';
+import { ModalImagenService } from '../../../services/modal-imagen.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -18,7 +19,8 @@ export class UsuariosComponent implements OnInit {
   public cargando:boolean=true;
 
   constructor(private usuarioService: UsuarioService,
-    private busquedasService: BusquedasService
+    private busquedasService: BusquedasService,
+    private modalImagenService: ModalImagenService
   ) {
 
   }
@@ -119,6 +121,11 @@ this.usuarioService.guardarUsuario(usuario)
 .subscribe(resp=>{
   console.log(resp);
 });
+
+  }
+
+  abrirModal(usuario:Usuario){
+    this.modalImagenService.abrirModal();
 
   }
 
