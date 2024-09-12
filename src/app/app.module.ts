@@ -11,7 +11,7 @@ import { AuthModule } from './auth/auth/auth.module';
 import { PromesasComponent } from './pages/promesas/promesas.component';
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.component';
 
 
@@ -37,7 +37,8 @@ import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.comp
     AppRoutingModule,
     PagesModule,
     AuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [],
