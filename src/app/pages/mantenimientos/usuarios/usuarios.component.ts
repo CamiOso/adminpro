@@ -125,7 +125,12 @@ this.usuarioService.guardarUsuario(usuario)
   }
 
   abrirModal(usuario:Usuario){
-    this.modalImagenService.abrirModal();
+  if(!usuario.uid){
+    return;
+
+  }
+
+    this.modalImagenService.abrirModal('usuarios',usuario.uid,usuario.img);
 
   }
 
