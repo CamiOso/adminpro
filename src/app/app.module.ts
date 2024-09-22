@@ -13,6 +13,8 @@ import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.component';
+import { HospitalesComponent } from './pages/mantenimientos/hospitales/hospitales.component';
+import { MedicosComponent } from './pages/mantenimientos/medicos/medicos.component';
 
 
 
@@ -27,6 +29,8 @@ import { UsuariosComponent } from './pages/mantenimientos/usuarios/usuarios.comp
       RxjsComponent,
       PerfilComponent,
       UsuariosComponent,
+      HospitalesComponent,
+      MedicosComponent,
 
 
 

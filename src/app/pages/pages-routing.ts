@@ -28,7 +28,9 @@ const routes: Routes = [
       {path:'perfil',component:PerfilComponent,data:{titulo:'Perfil de usuario'}},
 
       //Mantenimiento
-      {path:'usuarios',component:UsuariosComponent,data:{titulo:'Usuarios de aplicacion'}},
+      {path:'usuarios',component:UsuariosComponent,data:{titulo:'Mantenimiento de Usuarios'}},
+      {path:'hospitales',component:UsuariosComponent,data:{titulo:'Mantenimiento de Hospitales'}},
+      {path:'medicos',component:UsuariosComponent,data:{titulo:'Mantenimiento de Medicos'}},
 
     ],
   },
